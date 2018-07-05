@@ -1,11 +1,10 @@
 class UserProfile {
 
-  constructor (name, savingsAmount, loanAmount, profile) {
+  constructor (name, savingsAmount, loanAmount, profile, _id) {
     this.name = name
     this.savingsAmount = savingsAmount
     this.loanAmount = loanAmount
     this.profile = profile
-    Object.freeze(this)
   }
 
   setProfile (profile) {
