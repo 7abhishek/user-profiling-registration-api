@@ -2,7 +2,7 @@ const express = require('express')
 require('express-di')
 const app = express()
 const bodyParser = require('body-parser')
-const userRegistrationController = require('./controllers/userRegistrationController')
+const userRegistrationController = require('./controllers/UserRegistrationController')
 const MongoClientProvider = require('./dao/MongoClientProvider')
 const port = 3000
 const healthEndPointPath = "/health"
