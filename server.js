@@ -21,6 +21,6 @@ app.factory('mongoClientPromise', (req, res, next) => {
 app.get(healthEndPointPath, (req, res) => res.send('The user profiling service is healthy'))
 app.post(userRegistrationEndPointPath, userRegistrationController)
 
-app.listen(port, () => console.log(`user profiling service started at ${port}`))
+app.listen(process.env.PORT || port, () => console.log(`user profiling service started at ${port}`))
 
 module.exports = app
