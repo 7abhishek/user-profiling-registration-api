@@ -1,12 +1,13 @@
 const profileService = require('./profileService')
 const userProfileDao = require('../dao/userProfileDao')
 
-const register = (userProfile) => {
-  const profile = profileService.getProfile(userProfile)
-  const profileAssignedUserProfile = userProfile.setProfile(profile)
-  return userProfileDao.insertUserProfile(profileAssignedUserProfile).then((updatedUserProfile) => {
-    console.log("updatedUserProfile : ", updatedUserProfile)
-    return updatedUserProfile
+const register = (mongoClientPromise, userProfile) => {
+  return profileService.getProfile(userProfile).then((profile) => {
+    const profileAssignedUserProfile = userProfile.setProfile(profile)
+    return userProfileDao.insertUserProfile(mongoClientPromise, profileAssignedUserProfile).then((updatedUserProfile) => {
+      console.log("updatedUserProfile : ", updatedUserProfile)
+      return updatedUserProfile
+    })
   })
 }
 
