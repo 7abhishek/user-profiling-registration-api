@@ -1,6 +1,6 @@
 class UserProfile {
 
-  constructor (name, savingsAmount, loanAmount, profile, _id) {
+  constructor (name, savingsAmount, loanAmount, profile) {
     this.name = name
     this.savingsAmount = savingsAmount
     this.loanAmount = loanAmount
