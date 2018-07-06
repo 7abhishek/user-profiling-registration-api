@@ -1,5 +1,5 @@
 const assert = require('assert')
-const dbName = 'userProfileSystem'
+const dbName = 'user-profiling-system'
 const collectionName = 'userProfile'
 
 const insertUserProfile = function(mongoClientPromise, userProfile) {
