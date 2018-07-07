@@ -1,0 +1,8 @@
+{
+  "mongoDbConfig": {
+    "host": "localhost",
+    "port": 27017,
+    "dbName": "user-profiling-system"
+  },
+  "applicationPort": 3000
+}

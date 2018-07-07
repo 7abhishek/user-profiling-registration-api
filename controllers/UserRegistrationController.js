@@ -5,7 +5,7 @@ const contentApplicationJson = 'application/json'
 const ProfileScoreException = require('../exceptions/ProfileScoreException')
 const jsonString = JSON.stringify
 
-const register = (mongoClientPromise, req, res) => {
+const register = async (mongoClientPromise, req, res) => {
   const requestBody = req.body
   console.log(`The requestBody for /register is ${jsonString(requestBody)}`)
   const userProfile = new UserProfile(requestBody.name, requestBody.savingsAmount, requestBody.loanAmount)
