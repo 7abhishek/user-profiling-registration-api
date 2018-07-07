@@ -16,7 +16,7 @@ const swaggerDefinition = {
     version: '1.0.0',
     description: 'API documentation for User Profiling System',
   },
-  host: 'localhost:3000',
+  host: 'secret-retreat-83864.herokuapp.com',
   basePath: '/',
 };
 const swaggerOptions = {
