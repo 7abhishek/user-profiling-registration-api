@@ -1,6 +1,7 @@
 const assert = require('assert')
 const dbName = 'user-profiling-system'
 const collectionName = 'userProfile'
+const jsonString = JSON.stringify
 
 const insertUserProfile = function(mongoClientPromise, userProfile) {
   return mongoClientPromise.then((client) => {
@@ -9,7 +10,7 @@ const insertUserProfile = function(mongoClientPromise, userProfile) {
     return collection.insertOne(userProfile).then((result) => {
       assert.equal(1, result.result.n)
       assert.equal(1, result.ops.length)
-      console.debug("result of insert userProfile into database : ", result)
+      console.debug(`result of insert userProfile into database : ${jsonString(result)}`)
       console.debug("Inserted 1 userProfile into the collection")
       return userProfile;
     })
