@@ -10,7 +10,6 @@ const getProfile = (userProfile) => {
     const loanAmount = userProfile.loanAmount
     const savingAmountScore = savingAmountScoreMap[savingsAmount]
     const loanAmountScore = loanAmountScoreMap[loanAmount]
-    console.log("savingAmountScore ", savingAmountScore, " loanAmountScore ", loanAmountScore)
     if (_.isUndefined(savingAmountScore)) {
       reject(ProfileScoreException(`savingsAmount ${savingsAmount} does not matching the denominations available`))
     }

@@ -1,0 +1,8 @@
+{
+  "mongoDbConfig": {
+    "host": "ds227110.mlab.com",
+    "port": 27110,
+    "dbName": "user-profiling-system"
+  },
+  "applicationPort": 3000
+}
