@@ -22,7 +22,8 @@ describe('UserRegistration', () => {
     done()
   })
 
-  describe('POST /register', () => {
+  const registerEndpoint = '/v1/register'
+  describe(`POST ${registerEndpoint}`, () => {
 
     it('should successfully register user with profile A', (done) => {
       let user = {
@@ -33,7 +34,7 @@ describe('UserRegistration', () => {
       let expectedProfile = 'A'
 
       chai.request(server)
-        .post('/register')
+        .post(registerEndpoint)
         .send(user)
         .end((err, res) => {
           res.should.have.status(200);
@@ -55,7 +56,7 @@ describe('UserRegistration', () => {
       let expectedProfile = 'B'
 
       chai.request(server)
-        .post('/register')
+        .post(registerEndpoint)
         .send(user)
         .end((err, res) => {
           res.should.have.status(200)
@@ -77,7 +78,7 @@ describe('UserRegistration', () => {
       let expectedProfile = 'C'
 
       chai.request(server)
-        .post('/register')
+        .post(registerEndpoint)
         .send(user)
         .end((err, res) => {
           res.should.have.status(200)
@@ -89,28 +90,28 @@ describe('UserRegistration', () => {
           done()
         })
     })
-  })
 
-  it('should successfully register user with profile D', (done) => {
-    let user = {
-      name: "John",
-      savingsAmount: 6000,
-      loanAmount: 10000
-    }
-    let expectedProfile = 'D'
+    it('should successfully register user with profile D', (done) => {
+      let user = {
+        name: "John",
+        savingsAmount: 6000,
+        loanAmount: 10000
+      }
+      let expectedProfile = 'D'
 
-    chai.request(server)
-      .post('/register')
-      .send(user)
-      .end((err, res) => {
-        res.should.have.status(200)
-        res.body.should.be.a('object')
-        res.body.should.have.property('name')
-        res.body.should.have.property('savingsAmount')
-        res.body.should.have.property('loanAmount')
-        res.body.should.have.property('profile').eql(expectedProfile)
-        done()
-      })
+      chai.request(server)
+        .post(registerEndpoint)
+        .send(user)
+        .end((err, res) => {
+          res.should.have.status(200)
+          res.body.should.be.a('object')
+          res.body.should.have.property('name')
+          res.body.should.have.property('savingsAmount')
+          res.body.should.have.property('loanAmount')
+          res.body.should.have.property('profile').eql(expectedProfile)
+          done()
+        })
+    })
   })
 })
 
